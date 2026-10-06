@@ -1,5 +1,11 @@
 import { SiLinux, SiPython, SiWireshark, SiGnubash, SiMetasploit } from "react-icons/si";
-import { FaServer, FaTerminal, FaWindows } from "react-icons/fa";
+import { FaServer, FaWindows } from "react-icons/fa";
+
+// استيراد الصور مباشرة لتحديد مساراتها النهائية تلقائياً بواسطة Next.js
+import burpSuiteImg from "../public/Burpsuite.png";
+import nmapImg from "../public/Nmap.png";
+import nessusImg from "../public/Nessus.png";
+import nucleiImg from "../public/Nuclie.png";
 
 const tools = [
   { name: "Linux", icon: <SiLinux className="w-14 h-14 text-amber-400" /> },
@@ -11,15 +17,17 @@ const tools = [
     name: "Burp Suite", 
     icon: (
       <img 
-        src="/Burpsuite.png" 
+        src={burpSuiteImg.src} 
         alt="Burp Suite" 
         className="w-14 h-14 object-contain"
       />
     ) 
   },
-  { name: "Nmap", icon: (
+  { 
+    name: "Nmap", 
+    icon: (
       <img 
-        src="/Nmap.png" 
+        src={nmapImg.src} 
         alt="Nmap" 
         className="w-14 h-14 object-contain"
       />
@@ -30,7 +38,7 @@ const tools = [
     name: "Nessus", 
     icon: (
       <img 
-        src="/Nessus.png" 
+        src={nessusImg.src} 
         alt="Nessus" 
         className="w-14 h-14 object-contain"
       />
@@ -41,7 +49,7 @@ const tools = [
     name: "Nuclei", 
     icon: (
       <img 
-        src="/Nuclie.png" 
+        src={nucleiImg.src} 
         alt="Nuclei" 
         className="w-14 h-14 object-contain"
       />
@@ -53,7 +61,6 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-black text-white">
       <div className="max-w-[1400px] mx-auto px-6">
-        {/* عنوان القوالب الموحد بدون أي محاذاة قسرية */}
         <div className="mb-14">
           <span className="text-[#ef4444] font-mono text-xs tracking-[0.25em] uppercase block mb-3 font-semibold">
             02 / SKILLS & TECHNOLOGIES
@@ -63,7 +70,6 @@ export default function Skills() {
           </h2>
         </div>
 
-        {/* شبكة الأدوات بعد زيادة الأدوات الجديدة */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
           {tools.map((tool) => (
             <div 
