@@ -1,11 +1,11 @@
 import { SiLinux, SiPython, SiWireshark, SiGnubash, SiMetasploit } from "react-icons/si";
 import { FaServer, FaWindows } from "react-icons/fa";
 
-// استيراد الصور مباشرة لتحديد مساراتها النهائية تلقائياً بواسطة Next.js
-import burpSuiteImg from "../public/Burpsuite.png";
-import nmapImg from "../public/Nmap.png";
-import nessusImg from "../public/Nessus.png";
-import nucleiImg from "../public/Nuclie.png";
+// دالة مساعدة لتحديد المسار الصحيح سواء في Local أو GitHub Pages
+const getImagePath = (path: string) => {
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || "";
+  return `${basePath}${path}`;
+};
 
 const tools = [
   { name: "Linux", icon: <SiLinux className="w-14 h-14 text-amber-400" /> },
@@ -17,7 +17,7 @@ const tools = [
     name: "Burp Suite", 
     icon: (
       <img 
-        src={burpSuiteImg.src} 
+        src={getImagePath("/Burpsuite.png")} 
         alt="Burp Suite" 
         className="w-14 h-14 object-contain"
       />
@@ -27,7 +27,7 @@ const tools = [
     name: "Nmap", 
     icon: (
       <img 
-        src={nmapImg.src} 
+        src={getImagePath("/Nmap.png")} 
         alt="Nmap" 
         className="w-14 h-14 object-contain"
       />
@@ -38,7 +38,7 @@ const tools = [
     name: "Nessus", 
     icon: (
       <img 
-        src={nessusImg.src} 
+        src={getImagePath("/Nessus.png")} 
         alt="Nessus" 
         className="w-14 h-14 object-contain"
       />
@@ -49,7 +49,7 @@ const tools = [
     name: "Nuclei", 
     icon: (
       <img 
-        src={nucleiImg.src} 
+        src={getImagePath("/Nuclie.png")} 
         alt="Nuclei" 
         className="w-14 h-14 object-contain"
       />
