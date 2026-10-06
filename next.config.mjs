@@ -2,10 +2,8 @@ const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  // السماح بالصور المحلية، data:، وأي صور من https (مثل SimpleIcons وWeb3Forms)
   "img-src 'self' data: https:",
   "font-src 'self'",
-  // السماح بالاتصال بـ Web3Forms أو EmailJS
   "connect-src 'self' https://api.web3forms.com https://api.emailjs.com",
   "object-src 'none'",
   "base-uri 'self'",
@@ -15,8 +13,12 @@ const csp = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // مطلوب لرفع الموقع على GitHub Pages كـ Static Export
   output: "export",
+  
+  // تضبيط مسارات GitHub Pages للمستودع الفرعي
+  basePath: "/ahmed-magdy",
+  assetPrefix: "/ahmed-magdy/",
+
   images: {
     unoptimized: true,
   },
